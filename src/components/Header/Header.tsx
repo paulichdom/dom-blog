@@ -85,7 +85,6 @@ const LogoLink = styled.a`
   cursor: pointer;
   font-size: 24px;
   font-weight: 800;
-  color: ${ColorPalette.honeyDew};
   margin-right: 32px;
   line-height: 1.6;
 `;
@@ -96,11 +95,11 @@ const List = styled.ul`
   list-style: none;
   display: flex;
   padding: 0;
-  color: ${ColorPalette.honeyDew};
 `;
 
 const ListItem = styled.li`
   margin: 10px;
+  cursor: pointer;
 `;
 
 const LinkContainer = styled.div``;

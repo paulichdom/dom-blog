@@ -6,27 +6,27 @@ import GithubWhite from '../Icons/GithubWhite';
 import TwitterWhite from '../Icons/TwitterWhite';
 import Link from 'next/link';
 
-const Header = () => {
+export default function Header() {
   return (
     <StyledHeaderWrapper>
       <HeaderBuffer />
       <HeaderContainer>
         <StyledHeader>
           <NavbarWrapper>
-            <LogoLink href='/'>Domagoj Paulić</LogoLink>
+            <LogoLink href="/">Domagoj Paulić</LogoLink>
             <StyledNavbar>
               <List>
                 <ListItem>
-                  <LinkContainer>Latest</LinkContainer>
+                  <NavLink href="">Latest</NavLink>
                 </ListItem>
                 <ListItem>
-                  <LinkContainer>Posts</LinkContainer>
+                  <NavLink href="/posts">Posts</NavLink>
                 </ListItem>
                 <ListItem>
-                  <LinkContainer>About</LinkContainer>
+                  <NavLink href="">About</NavLink>
                 </ListItem>
                 <ListItem>
-                  <LinkContainer>Contact</LinkContainer>
+                  <NavLink href="">Contact</NavLink>
                 </ListItem>
               </List>
             </StyledNavbar>
@@ -34,19 +34,19 @@ const Header = () => {
           <ContactWrapper>
             <List>
               <ListItem>
-                <LinkContainer>
+                <NavLink href="">
                   <LinkedInWhite />
-                </LinkContainer>
+                </NavLink>
               </ListItem>
               <ListItem>
-                <LinkContainer>
+                <NavLink href="">
                   <GithubWhite />
-                </LinkContainer>
+                </NavLink>
               </ListItem>
               <ListItem>
-                <LinkContainer>
+                <NavLink href="">
                   <TwitterWhite />
-                </LinkContainer>
+                </NavLink>
               </ListItem>
             </List>
           </ContactWrapper>
@@ -54,7 +54,7 @@ const Header = () => {
       </HeaderContainer>
     </StyledHeaderWrapper>
   );
-};
+}
 
 const StyledHeaderWrapper = styled.div`
   max-width: 100%;
@@ -107,8 +107,9 @@ const ListItem = styled.li`
   cursor: pointer;
 `;
 
-const LinkContainer = styled.div``;
+const NavLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
 
 const ContactWrapper = styled.div``;
-
-export default Header;

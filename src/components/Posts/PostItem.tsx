@@ -1,9 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Post } from './PostGrid';
 import styled from 'styled-components';
 import { ColorPalette } from '@/styles/constants';
+import { Post } from '@/types/post';
 
 type PostItemProps = {
   post: Post;

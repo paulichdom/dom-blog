@@ -1,13 +1,7 @@
 import React from 'react';
 import PostItem from './PostItem';
 import styled from 'styled-components';
-
-export interface Post {
-  title: string;
-  excerpt: string;
-  date: string;
-  slug: string;
-}
+import { Post } from '@/types/post';
 
 type PostGridProps = {
   posts: Post[];

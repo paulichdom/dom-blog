@@ -4,6 +4,7 @@ import { ColorPalette } from '@/styles/constants';
 import LinkedInWhite from '../Icons/LinkedInWhite';
 import GithubWhite from '../Icons/GithubWhite';
 import TwitterWhite from '../Icons/TwitterWhite';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -12,7 +13,7 @@ const Header = () => {
       <HeaderContainer>
         <StyledHeader>
           <NavbarWrapper>
-            <LogoLink>Domagoj Paulić</LogoLink>
+            <LogoLink href='/'>Domagoj Paulić</LogoLink>
             <StyledNavbar>
               <List>
                 <ListItem>
@@ -64,6 +65,9 @@ const HeaderBuffer = styled.div`
   min-height: 48px;
 `;
 const HeaderContainer = styled.div`
+  position: sticky;
+  top: 0px;
+  z-index: 2;
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
@@ -80,13 +84,14 @@ const NavbarWrapper = styled.div`
   flex: 1 1 0%;
 `;
 
-const LogoLink = styled.a`
+const LogoLink = styled(Link)`
   text-decoration: none;
   cursor: pointer;
   font-size: 24px;
   font-weight: 800;
   margin-right: 32px;
   line-height: 1.6;
+  color: inherit;
 `;
 
 const StyledNavbar = styled.nav``;

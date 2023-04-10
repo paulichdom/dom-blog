@@ -1,15 +1,19 @@
-import React, { Fragment, ReactNode } from 'react';
+import React, { Fragment, ReactNode, FC } from 'react';
 import styled from 'styled-components';
 import Header from '../Header/Header';
 
-const Layout = ({ children }: { children: ReactNode }) => {
+type LayoutProps = {
+  children: ReactNode;
+};
+
+export default function Layout({ children }: LayoutProps) {
   return (
     <Fragment>
       <Header />
       <MainContainer>{children}</MainContainer>
     </Fragment>
   );
-};
+}
 
 const MainContainer = styled.main`
   position: relative;
@@ -19,5 +23,4 @@ const MainContainer = styled.main`
   padding-top: 64px;
   padding-left: 32px;
   padding-right: 32px;
-`
-export default Layout;
+`;

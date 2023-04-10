@@ -1,7 +1,11 @@
-export interface Post {
-  title: string;
-  excerpt: string;
-  date: string;
+export interface Post extends PostFrontMatter {
   slug: string;
-  content?: string
+  content: string;
+}
+
+export interface PostFrontMatter {
+  title: string;
+  date: string;
+  excerpt: string;
+  isFeatured: boolean;
 }

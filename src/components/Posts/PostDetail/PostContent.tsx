@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import PostHeader from './PostHeader';
 import { post } from '@/pages/posts/tmpPost';
 
@@ -7,7 +8,7 @@ export default function PostContent() {
   return (
     <article>
       <PostHeader title={title} />
-      {content}
+      <ReactMarkdown>{content as string}</ReactMarkdown>
     </article>
   );
 }

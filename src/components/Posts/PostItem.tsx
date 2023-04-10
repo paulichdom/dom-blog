@@ -21,14 +21,14 @@ export default function PostItem({ post }: PostItemProps) {
 
   return (
     <PostCard>
-      <Article>
-        <StyledLink href={linkPath}>
+      <StyledLink href={linkPath}>
+        <Article>
           <Title>{title}</Title>
           <time>{formattedDate}</time>
           <Excerpt>{excerpt}</Excerpt>
           <Text>Read more</Text>
-        </StyledLink>
-      </Article>
+        </Article>
+      </StyledLink>
     </PostCard>
   );
 }

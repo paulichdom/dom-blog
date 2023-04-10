@@ -1,5 +1,6 @@
+import PostContent from '@/components/Posts/PostDetail/PostContent';
 import React from 'react';
 
-export default function Article() {
-  return <div>[slug]</div>;
+export default function Post() {
+  return <PostContent />;
 }

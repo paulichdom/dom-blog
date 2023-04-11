@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import PostHeader from './PostHeader';
-import { post } from '@/pages/posts/tmpPost';
+import { Post } from '@/types/post';
 
-export default function PostContent() {
+type PostContentProps = {
+  post: Post;
+};
+
+export default function PostContent({ post }: PostContentProps) {
   const { title, content } = post;
   return (
     <article>

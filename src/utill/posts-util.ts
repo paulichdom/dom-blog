@@ -6,14 +6,18 @@ import { PostFrontMatter } from '@/types/post';
 const postsPath = 'src/content/posts';
 const postsDirectory = path.join(process.cwd(), postsPath);
 
-function getPostData(fileName: string) {
-  const filePath = path.join(postsDirectory, fileName);
+export function getPostsFiles() {
+  return fs.readdirSync(postsDirectory);
+}
+
+export function getPostData(postIdentifier: string) {
+  // Remove the file extension
+  const postSlug = postIdentifier.replace(/\.md$/, '');
+
+  const filePath = path.join(postsDirectory, `${postSlug}.md`);
   const fileContent = fs.readFileSync(filePath, 'utf-8');
 
   const { data, content } = matter(fileContent);
-
-  // Remove the file extension
-  const postSlug = fileName.replace(/\.md$/, '');
 
   const postData = {
     slug: postSlug,
@@ -25,7 +29,7 @@ function getPostData(fileName: string) {
 }
 
 export function getAllPosts() {
-  const postFiles = fs.readdirSync(postsDirectory);
+  const postFiles = getPostsFiles();
 
   const allPosts = postFiles.map((postFile) => {
     return getPostData(postFile);

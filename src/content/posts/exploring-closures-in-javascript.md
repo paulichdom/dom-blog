@@ -1,7 +1,7 @@
 ---
 title: 'Exploring Closures in JavaScript: Examples and Use Cases'
 date: '10-04-2023'
-excerpt: 'Closures are an important concept in JavaScript that allow for powerful and flexible programming techniques. A closure is created when a function is defined inside another function and it retains access to the parent function''s variables even after the parent function has finished executing. By understanding how closures work, you can take advantage of them to create private variables, implement callbacks and event handlers, and more.'
+excerpt: "Closures are an important concept in JavaScript that allow for powerful and flexible programming techniques. A closure is created when a function is defined inside another function and it retains access to the parent function's variables even after the parent function has finished executing. By understanding how closures work, you can take advantage of them to create private variables, implement callbacks and event handlers, and more."
 isFeatured: true
 ---
 
@@ -14,3 +14,5 @@ A closure is a function that has access to the variables and scope of its parent
 ## Examples of Closures in JavaScript
 
 To help understand closures, let's look at a few examples of how they can be used in JavaScript.
+
+![Closure](/public/images/posts/exploring-closures-in-javascript.png)

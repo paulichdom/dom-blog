@@ -4,6 +4,8 @@ import PostHeader from './PostHeader';
 import { Post } from '@/types/post';
 import Image from 'next/image';
 import styled from 'styled-components';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 type PostContentProps = {
   post: Post;
@@ -54,6 +56,33 @@ export default function PostContent({ post }: PostContentProps) {
       }
 
       return <p>{paragraph.children}</p>;
+    },
+
+    code: (
+      code: {
+        node: object;
+        className: string;
+        children: string[];
+        inline: any;
+      },
+      ...props: any
+    ) => {
+      const { className, children, inline } = code;
+      const lng = /language-(\w+)/.exec(className || '')?.[1];
+
+      return !inline && lng ? (
+        <SyntaxHighlighter
+          language={lng}
+          style={nightOwl}
+          showLineNumbers={true}
+        >
+          {children}
+        </SyntaxHighlighter>
+      ) : (
+        <code className={className} {...props}>
+          {children}
+        </code>
+      );
     },
   };
 

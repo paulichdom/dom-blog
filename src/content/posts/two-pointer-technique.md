@@ -1,0 +1,65 @@
+---
+title: 'The two pointer technique'
+date: '2023-04-13T21:19:05.323Z'
+excerpt: 'The two pointer technique is a popular algorithmic pattern used to solve a wide range of problems, particularly those that involve searching, sorting, or manipulating arrays or linked lists. The basic idea behind this technique is to use two pointers (or indices) that move through the data structure in different ways, typically in a linear or cyclic fashion, to solve the problem more efficiently than a naive approach.'
+isFeatured: true
+---
+
+The two pointer technique is a powerful algorithmic pattern that has become increasingly popular in recent years. It is particularly useful for solving problems that involve searching, sorting, or manipulating arrays or linked lists. This technique involves using two pointers or indices that move through the data structure in different ways to efficiently solve the problem at hand. By using this technique, we can often reduce the time and space complexity of a solution and create more optimal algorithms. It is commonly used in technical interviews and real-world applications, and is an important tool in the arsenal of any skilled programmer or data scientist.
+
+Here are two examples of problems that can be solved using the two pointer technique:
+
+## 1. Pair Sum Problem
+
+Given an array of integers and a target sum, find all pairs of numbers in the array that add up to the target sum.
+To solve this problem using the two pointer technique, we can first sort the array in ascending order. Then, we can use two pointers, one pointing to the beginning of the array (i.e., the smallest element) and the other pointing to the end of the array (i.e., the largest element). We can then move these pointers towards each other, checking the sum of the values at the pointers at each step. If the sum is equal to the target, we add the pair of values to our result set and move both pointers inward. If the sum is less than the target, we increment the left pointer to increase the sum, and if it's greater than the target, we decrement the right pointer to decrease the sum. We repeat this process until the pointers meet in the middle, or until we exhaust all possible pairs.
+
+For example, given the array [2, 7, 11, 15, 3, 6] and the target sum 9, we can use the two pointer technique to find the pairs (2, 7) and (3, 6).
+
+## 2 .Reverse Linked List Problem
+
+Given a singly linked list, reverse the order of the nodes.
+To solve this problem using the two pointer technique, we can use two pointers, one pointing to the current node and the other pointing to the previous node. We can then traverse the linked list, moving both pointers forward at each step. At each step, we update the pointers to reverse the links between the nodes. Specifically, we set the current node's next pointer to the previous node and update the previous node pointer to the current node. We repeat this process until we reach the end of the linked list.
+
+For example, given the linked list 1 -> 2 -> 3 -> 4 -> 5, we can use the two pointer technique to reverse it to 5 -> 4 -> 3 -> 2 -> 1.
+
+```js
+function pairSum(arr, target) {
+  let left = 0; // initialize left pointer to first element
+  let right = arr.length - 1; // initialize right pointer to last element
+  const pairs = []; // initialize empty result array
+
+  arr.sort((a, b) => a - b); // sort the array in ascending order
+
+  while (left < right) {
+    // while pointers don't overlap
+    const sum = arr[left] + arr[right]; // calculate sum of elements at pointers
+
+    if (sum === target) {
+      // if sum equals target
+      pairs.push([arr[left], arr[right]]); // add pair to result array
+      left++; // move left pointer rightward
+      right--; // move right pointer leftward
+    } else if (sum < target) {
+      // if sum is less than target
+      left++; // move left pointer rightward
+    } else {
+      // if sum is greater than target
+      right--; // move right pointer leftward
+    }
+  }
+
+  return pairs; // return result array
+}
+
+// Example usage
+const arr = [2, 7, 11, 15, 3, 6];
+const target = 9;
+console.log(pairSum(arr, target)); // Output: [[2, 7], [3, 6]]
+```
+
+In this code snippet, the pairSum function takes an array arr and a target sum target as input, and returns an array of pairs of numbers in the array that add up to the target sum. The function initializes two pointers left and right to the beginning and end of the array, respectively. It then sorts the array in ascending order using the built-in sort method with a custom comparator function that compares numbers.
+
+The function then enters a loop that continues as long as the two pointers don't overlap. At each iteration, the function calculates the sum of the numbers at the two pointers, and compares it to the target sum. If the sum is equal to the target, the function adds the pair of numbers to the result array pairs, and moves both pointers inward by incrementing left and decrementing right. If the sum is less than the target, the function moves the left pointer rightward, and if it's greater than the target, the function moves the right pointer leftward.
+
+Finally, the function returns the result array pairs, which contains all pairs of numbers that add up to the target sum.

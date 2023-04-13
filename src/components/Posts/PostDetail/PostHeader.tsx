@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 type PostHeaderProps = {
   title: string;
@@ -6,8 +7,13 @@ type PostHeaderProps = {
 
 export default function PostHeader({ title }: PostHeaderProps) {
   return (
-    <header>
+    <HeaderWrapper>
       <h1>{title}</h1>
-    </header>
+    </HeaderWrapper>
   );
 }
+
+const HeaderWrapper = styled.header`
+  margin-bottom: 2rem;
+  text-align: center;
+`;

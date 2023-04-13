@@ -15,4 +15,4 @@ A closure is a function that has access to the variables and scope of its parent
 
 To help understand closures, let's look at a few examples of how they can be used in JavaScript.
 
-![Closure](/public/images/posts/exploring-closures-in-javascript.png)
+![Closure image {priority}{600x300}{caption: Photo by Someone}](exploring-closures-in-javascript.png)

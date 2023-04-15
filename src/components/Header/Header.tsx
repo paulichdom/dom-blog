@@ -23,10 +23,10 @@ export default function Header() {
                   <NavLink href="/posts">Posts</NavLink>
                 </ListItem>
                 <ListItem>
-                  <NavLink href="">About</NavLink>
+                  <NavLink href="/about">About</NavLink>
                 </ListItem>
                 <ListItem>
-                  <NavLink href="">Contact</NavLink>
+                  <NavLink href="/contact">Contact</NavLink>
                 </ListItem>
               </List>
             </StyledNavbar>

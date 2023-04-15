@@ -2,6 +2,7 @@
   --darkBlue: hsl(228, 29%, 16%);
   --compBlue: hsl(232, 25%, 12%);
   --honeyDew: hsl(120, 100%, 97%);
+  --white: hsl(0,0%,100%)
 }
 /*
   1. Use a more-intuitive box-sizing model.
@@ -34,7 +35,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Poppins', sans-serif;
   background-color: var(--compBlue);
-  color: var(--honeyDew);
+  color: var(--white);
 }
 
 /*

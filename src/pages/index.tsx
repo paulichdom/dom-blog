@@ -1,15 +1,15 @@
 import PostGrid from '@/components/Posts/PostGrid';
-import Profile from '@/components/Profile/Profile';
+
 import Head from 'next/head';
 // import { posts } from './posts/tmpPostsData';
 import { getFeaturedPosts } from '@/utill/posts-util';
 import { Post } from '@/types/post';
 
 type HomePageProps = {
-  posts: Post[]
-}
+  posts: Post[];
+};
 
-export default function HomePage({posts}: HomePageProps) {
+export default function HomePage({ posts }: HomePageProps) {
   return (
     <>
       <Head>
@@ -18,7 +18,6 @@ export default function HomePage({posts}: HomePageProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Profile /> */}
       <PostGrid posts={posts} />
     </>
   );
@@ -31,6 +30,6 @@ export function getStaticProps() {
     props: {
       posts: featuredPosts,
     },
-    revalidate: 1800
+    revalidate: 1800,
   };
 }

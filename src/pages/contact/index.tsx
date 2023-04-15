@@ -1,4 +1,5 @@
 import ContactCard from '@/components/ContactCard/ContactCard';
+import FrequentlyAskedQuestion from '@/components/FrequentlyAskedQuestion/FrequentlyAskedQuestion';
 import React from 'react';
 import styled from 'styled-components';
 

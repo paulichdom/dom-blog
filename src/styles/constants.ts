@@ -8,4 +8,5 @@ export const ColorPalette = {
   charcoal: '#364958',
   coolGray: '#282E3A',
   serenity: '#3D4957',
+  white: 'white'
 };

@@ -1,10 +1,11 @@
 import ContactCard from '@/components/ContactCard/ContactCard';
-import FramedImage from '@/components/FramedImage/FramedImage';
+import ButtonGroup from '@/components/IconButton/IconButton';
 import React from 'react';
 import styled from 'styled-components';
+import { ShoppingCart } from 'react-feather';
 
 const AVATAR_SRC = '/images/profile/tmpProfImage.jpg';
-const FRAMED_IMAGE_SRC = '/images/temp/tmpDangCan.jpg';
+
 
 export default function Contact() {
   return (
@@ -15,12 +16,7 @@ export default function Contact() {
         name="Mike Woods"
         email="mike@woods.com"
       />
-      <FramedImage
-        src={FRAMED_IMAGE_SRC}
-        alt={'Img'}
-        width={250}
-        caption="Mike Woods"
-      />
+      <ButtonGroup />
     </Wrapper>
   );
 }

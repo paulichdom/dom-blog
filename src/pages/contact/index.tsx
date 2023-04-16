@@ -1,22 +1,15 @@
-import ContactCard from '@/components/ContactCard/ContactCard';
-import ButtonGroup from '@/components/IconButton/IconButton';
+import { Breadcrumbs, Crumb } from '@/components/Breadcrumbs/Breadcrumbs';
 import React from 'react';
 import styled from 'styled-components';
-import { ShoppingCart } from 'react-feather';
-
-const AVATAR_SRC = '/images/profile/tmpProfImage.jpg';
-
 
 export default function Contact() {
   return (
     <Wrapper>
-      <ContactCard
-        avatarSrc={AVATAR_SRC}
-        avatarAlt={'Avatar image'}
-        name="Mike Woods"
-        email="mike@woods.com"
-      />
-      <ButtonGroup />
+      <Breadcrumbs>
+        <Crumb href="/">Posts</Crumb>
+        <Crumb href="/">More posts</Crumb>
+        <Crumb href="/">Specific post</Crumb>
+      </Breadcrumbs>
     </Wrapper>
   );
 }

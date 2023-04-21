@@ -7,19 +7,19 @@ interface Icons {
 }
 
 const icons: Icons = {
-  serach: Search,
+  search: Search,
   'at-sign': AtSign,
   'chevron-down': ChevronDown,
 };
 
 type IconProps = {
   id: string;
-  size: number;
-  strokeWidth: number;
+  size?: number;
+  strokeWidth?: number;
   [propName: string]: any;
 };
 
-export default function Icon({
+export default function IconCluster({
   id,
   size,
   strokeWidth = 1,

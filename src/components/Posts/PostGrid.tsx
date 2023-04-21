@@ -11,7 +11,7 @@ export default function PostGrid(props: PostGridProps) {
   const { posts } = props;
   return (
     <GridLayout>
-      {posts.map((post: any) => (
+      {posts.map((post: Post) => (
         <PostItem key={post.slug} post={post} />
       ))}
     </GridLayout>
@@ -20,6 +20,6 @@ export default function PostGrid(props: PostGridProps) {
 
 const GridLayout = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
 `;

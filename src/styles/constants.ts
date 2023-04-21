@@ -8,5 +8,8 @@ export const ColorPalette = {
   charcoal: '#364958',
   coolGray: '#282E3A',
   serenity: '#3D4957',
-  white: 'white'
+  white: 'white',
+  softDown: 'hsla(240, 3%, 14%, 1)',
+  softDownHover: 'hsla(240, 2%, 17%, 1)',
+  red: 'hsl(0, 85%, 57%)'
 };

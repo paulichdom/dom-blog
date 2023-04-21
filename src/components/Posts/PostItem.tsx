@@ -34,10 +34,18 @@ export default function PostItem({ post }: PostItemProps) {
 }
 
 const PostCard = styled.div`
+  cursor: pointer;
   border-radius: 8px;
   padding: 24px;
-  background-color: ${ColorPalette.coolGray};
+  background-color: ${ColorPalette.softDown};
   max-width: fit-content;
+  border: 1px solid ${ColorPalette.softDown};
+  transition: border-color 250ms ease 0ms, background-color 0s ease;
+
+  &:hover {
+    border-color: ${ColorPalette.red};
+    background-color: ${ColorPalette.softDownHover};
+  }
 `;
 
 const StyledLink = styled(Link)`

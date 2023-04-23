@@ -12,7 +12,7 @@ type TextInputProps = {
 };
 
 type InputStyles = {
-  [index in 'small' | 'large']: {
+  [index in TextInputProps['size']]: {
     fontSize: number;
     iconSize: number;
     borderThickness: number;

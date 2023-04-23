@@ -1,15 +1,17 @@
-import PostGrid from '@/components/Posts/PostGrid';
-
 import Head from 'next/head';
-// import { posts } from './posts/tmpPostsData';
 import { getFeaturedPosts } from '@/utill/posts-util';
 import { Post } from '@/types/post';
+import PostGrid from '@/components/Posts/PostGrid';
+import { NextPageWithLayout } from './_app';
+import MainLayout from '@/components/Layout/MainLayout/MainLayout';
+import LayoutContainer from '@/components/Layout/LayoutContainer/LayoutContainer';
+import { ReactElement } from 'react';
 
 type HomePageProps = {
   posts: Post[];
 };
 
-export default function HomePage({ posts }: HomePageProps) {
+const HomePage: NextPageWithLayout<HomePageProps> = ({ posts }) => {
   return (
     <>
       <Head>
@@ -21,7 +23,15 @@ export default function HomePage({ posts }: HomePageProps) {
       <PostGrid posts={posts} />
     </>
   );
-}
+};
+
+HomePage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <LayoutContainer>
+      <MainLayout>{page}</MainLayout>
+    </LayoutContainer>
+  );
+};
 
 export function getStaticProps() {
   const featuredPosts = getFeaturedPosts();
@@ -33,3 +43,5 @@ export function getStaticProps() {
     revalidate: 1800,
   };
 }
+
+export default HomePage;

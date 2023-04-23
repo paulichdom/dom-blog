@@ -14,7 +14,6 @@ const Layout = styled.main`
   grid-template-columns: 1fr min(60ch, calc(100% - 64px)) 1fr;
   grid-column-gap: 32px;
   grid-row-gap: 32;
-  margin-top: 32px;
 
   & > * {
     grid-column: 2;

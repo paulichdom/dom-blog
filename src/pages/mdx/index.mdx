@@ -1,0 +1,25 @@
+export const meta = {
+  title: 'React suspense',
+};
+
+import IconInput from '@/components/IconInput/IconInput';
+import LayoutContainer from '@/components/Layout/LayoutContainer/LayoutContainer';
+import PostLayout from '@/components/Layout/PostLayout/PostLayout';
+
+# MDX page
+
+This is a list in markdown:
+
+- One
+- Two
+- Three
+
+React component:
+
+<IconInput icon="at-sign" placeholder="email here ..." size="small" />
+
+export default ({ children }) => (
+  <LayoutContainer>
+    <PostLayout>{children}</PostLayout>
+  </LayoutContainer>
+);

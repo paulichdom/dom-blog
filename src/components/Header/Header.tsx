@@ -28,6 +28,9 @@ export default function Header() {
                 <ListItem>
                   <NavLink href="/contact">Contact</NavLink>
                 </ListItem>
+                <ListItem>
+                  <NavLink href="/mdx">MDX</NavLink>
+                </ListItem>
               </List>
             </StyledNavbar>
           </NavbarWrapper>

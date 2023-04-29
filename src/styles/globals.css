@@ -39,6 +39,26 @@ body {
 }
 
 /*
+  Custom: Style scrollbar
+*/
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: hsl(210deg, 15%, 20%);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: hsl(210deg, 14%, 66%);
+  border: 2px solid hsl(210deg, 15%, 20%);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+/*
   6. Improve media defaults
 */
 img, picture, video, canvas, svg {

@@ -62,15 +62,15 @@ export default function Header() {
 const StyledHeaderWrapper = styled.div`
   max-width: 100%;
   background-color: ${ColorPalette.darkBlue};
+  position: sticky;
+  top: -28px;
+  z-index: 2;
 `;
 
 const HeaderBuffer = styled.div`
   min-height: 48px;
 `;
 const HeaderContainer = styled.div`
-  position: sticky;
-  top: 0px;
-  z-index: 2;
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;

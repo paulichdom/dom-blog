@@ -32,6 +32,9 @@ export default function Header() {
                   <ListItem>
                     <NavLink href="/mdx">MDX</NavLink>
                   </ListItem>
+                  <ListItem>
+                    <NavLink href="/articles">Articles</NavLink>
+                  </ListItem>
                 </List>
               </StyledNavbar>
             </NavbarWrapper>

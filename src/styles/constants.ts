@@ -1,6 +1,8 @@
 export const ColorPalette = {
   darkBlue: 'hsl(228, 29%, 16%)',
   compBlue: 'hsl(225, 100%, 12%)',
+  raisinBlack: 'hsl(222, 21%, 12%)',
+  gunMetal: 'hsl(221, 22%, 20%)',
   honeyDew: 'hsl(120, 100%, 97%)',
   jet: 'hsl(27, 10%, 17%)',
   prussianBlue: 'hsl(207, 43%, 16%)',

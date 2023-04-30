@@ -4,57 +4,61 @@ import LinkedInWhite from '../Icons/LinkedInWhite';
 import GithubWhite from '../Icons/GithubWhite';
 import TwitterWhite from '../Icons/TwitterWhite';
 import Link from 'next/link';
+import { ColorPalette } from '@/styles/constants';
 
 export default function Header() {
   return (
-    <StyledHeaderWrapper>
-      <HeaderBuffer />
-      <HeaderContainer>
-        <StyledHeader>
-          <NavbarWrapper>
-            <LogoLink href="/">Domagoj Paulić</LogoLink>
-            <StyledNavbar>
+    <>
+      <StyledHeaderWrapper>
+        <HeaderBuffer />
+        <HeaderContainer>
+          <StyledHeader>
+            <NavbarWrapper>
+              <LogoLink href="/">Domagoj Paulić</LogoLink>
+              <StyledNavbar>
+                <List>
+                  <ListItem>
+                    <NavLink href="">Latest</NavLink>
+                  </ListItem>
+                  <ListItem>
+                    <NavLink href="/posts">Posts</NavLink>
+                  </ListItem>
+                  <ListItem>
+                    <NavLink href="/about">About</NavLink>
+                  </ListItem>
+                  <ListItem>
+                    <NavLink href="/contact">Contact</NavLink>
+                  </ListItem>
+                  <ListItem>
+                    <NavLink href="/mdx">MDX</NavLink>
+                  </ListItem>
+                </List>
+              </StyledNavbar>
+            </NavbarWrapper>
+            <ContactWrapper>
               <List>
                 <ListItem>
-                  <NavLink href="">Latest</NavLink>
+                  <NavLink href="">
+                    <LinkedInWhite />
+                  </NavLink>
                 </ListItem>
                 <ListItem>
-                  <NavLink href="/posts">Posts</NavLink>
+                  <NavLink href="">
+                    <GithubWhite />
+                  </NavLink>
                 </ListItem>
                 <ListItem>
-                  <NavLink href="/about">About</NavLink>
-                </ListItem>
-                <ListItem>
-                  <NavLink href="/contact">Contact</NavLink>
-                </ListItem>
-                <ListItem>
-                  <NavLink href="/mdx">MDX</NavLink>
+                  <NavLink href="">
+                    <TwitterWhite />
+                  </NavLink>
                 </ListItem>
               </List>
-            </StyledNavbar>
-          </NavbarWrapper>
-          <ContactWrapper>
-            <List>
-              <ListItem>
-                <NavLink href="">
-                  <LinkedInWhite />
-                </NavLink>
-              </ListItem>
-              <ListItem>
-                <NavLink href="">
-                  <GithubWhite />
-                </NavLink>
-              </ListItem>
-              <ListItem>
-                <NavLink href="">
-                  <TwitterWhite />
-                </NavLink>
-              </ListItem>
-            </List>
-          </ContactWrapper>
-        </StyledHeader>
-      </HeaderContainer>
-    </StyledHeaderWrapper>
+            </ContactWrapper>
+          </StyledHeader>
+        </HeaderContainer>
+        <Curtain />
+      </StyledHeaderWrapper>
+    </>
   );
 }
 
@@ -125,3 +129,19 @@ const NavLink = styled(Link)`
 `;
 
 const ContactWrapper = styled.div``;
+
+const Curtain = styled.div`
+    position: absolute;
+    right: 0;
+    bottom: -31px;
+    width: 100%;
+    height: 32px;
+
+    &:before {
+      display: block;
+      width: 100%;
+      height: 32px;
+      background: linear-gradient(${ColorPalette.raisinBlack}, rgba(0,0,0,0) 90%);
+      content: "";
+  }
+`;

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ColorPalette } from '@/styles/constants';
 import LinkedInWhite from '../Icons/LinkedInWhite';
 import GithubWhite from '../Icons/GithubWhite';
 import TwitterWhite from '../Icons/TwitterWhite';
@@ -61,7 +60,17 @@ export default function Header() {
 
 const StyledHeaderWrapper = styled.div`
   max-width: 100%;
-  background-color: ${ColorPalette.darkBlue};
+  background: linear-gradient(
+    0deg,
+    #282f3e,
+    #262c3a,
+    #232937,
+    #212733,
+    #1f242f,
+    #1c212c,
+    #1a1f28,
+    #181c25
+  );
   position: sticky;
   top: -28px;
   z-index: 2;

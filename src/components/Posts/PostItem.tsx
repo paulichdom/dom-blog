@@ -37,14 +37,14 @@ const PostCard = styled.div`
   cursor: pointer;
   border-radius: 8px;
   padding: 24px;
-  background-color: ${ColorPalette.softDown};
+  background-color: ${ColorPalette.spaceCadet};
   max-width: fit-content;
-  border: 1px solid ${ColorPalette.softDown};
+  border: 1px solid ${ColorPalette.spaceCadet};
   transition: border-color 250ms ease 0ms, background-color 0s ease;
 
   &:hover {
-    border-color: ${ColorPalette.red};
-    background-color: ${ColorPalette.softDownHover};
+    border-color: ${ColorPalette.pearSecondary};
+    background-color: ${ColorPalette.spaceCadetLight};
   }
 `;
 

@@ -16,18 +16,14 @@ const StyledFooter = styled.footer`
   padding: 32px;
   background: linear-gradient(
     0deg,
-    #171926,
-    #181a27,
-    #181b29,
-    #191b2a,
-    #191c2b,
-    #1a1d2d,
-    #1a1e2e,
-    #1b1f2f,
-    #1b1f31,
-    #1c2032,
-    #1c2134,
-    #1d2235
+    #181c25,
+    #1a1f28,
+    #1c212c,
+    #1f242f,
+    #212733,
+    #232937,
+    #262c3a,
+    #282f3e
   );
 `;
 

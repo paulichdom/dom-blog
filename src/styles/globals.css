@@ -1,6 +1,7 @@
 :root {
-  --darkBlue: hsl(228, 29%, 16%);
-  --compBlue: hsl(232, 25%, 12%);
+  --gunMetal: 	hsl(221, 22%, 20%);
+  --raisinBlack: hsl(222, 21%, 12%);
+  --charcoal: hsl(221, 22%, 28%);
   --honeyDew: hsl(120, 100%, 97%);
   --white: hsl(0,0%,100%)
 }
@@ -34,7 +35,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: 'Poppins', sans-serif;
-  background-color: var(--compBlue);
+  background-color: var(--raisinBlack);
   color: var(--white);
 }
 

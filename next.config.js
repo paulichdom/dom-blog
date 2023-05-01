@@ -18,7 +18,8 @@ const nextConfig = {
   },
 };
 
-const withMDX = require('@next/mdx')({
+// TODO: Remove later
+/* const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [],
@@ -30,6 +31,6 @@ const withMDX = require('@next/mdx')({
     // This compiler is still experimental and is not recommended for production use.
     mdxRs: true,
   }
-})
+}) */
 
-module.exports = withMDX(nextConfig);
+module.exports = nextConfig;

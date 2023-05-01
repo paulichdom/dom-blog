@@ -4,9 +4,12 @@ import { getAllPosts } from '@/utill/posts';
 import { NextPageWithLayout } from '../_app';
 import { ReactElement } from 'react';
 import Link from 'next/link';
+import AllPosts from '@/components/Posts/AllPosts';
 
 const AllPostsPage: NextPageWithLayout = (props: any) => {
-  return (
+  return <AllPosts posts={props.posts} />;
+  // TODO: Remove later
+  /*   return (
     <div>
       <ul>
         {props.posts.map((post: any, index: number) => (
@@ -18,7 +21,7 @@ const AllPostsPage: NextPageWithLayout = (props: any) => {
         ))}
       </ul>
     </div>
-  );
+  ); */
 };
 
 AllPostsPage.getLayout = function getLayout(page: ReactElement) {

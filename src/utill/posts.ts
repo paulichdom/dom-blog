@@ -5,7 +5,6 @@ import { bundleMDX } from 'mdx-bundler';
 import readingTime from 'reading-time';
 import rehypeSlug from 'rehype-slug';
 import rehypeCodeTitles from 'rehype-code-titles';
-import rehypePrism from 'rehype-prism-plus';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings/lib';
 import matter from 'gray-matter';
 
@@ -35,8 +34,7 @@ export async function getPostData(fileName: string) {
         ...(options?.rehypePlugins ?? []),
         rehypeSlug,
         rehypeCodeTitles,
-        rehypePrism,
-        [rehypeAutolinkHeadings, { propertiers: { className: ['anchor'] } }],
+        [rehypeAutolinkHeadings, { properties: { className: ['anchor'] } }],
       ];
       return options;
     },

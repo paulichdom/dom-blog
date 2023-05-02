@@ -29,4 +29,8 @@ export const ColorPalette = {
   madder: 'hsl(354, 71%, 36%)',
   pear: 'hsl(61, 78%, 46%)',
   pearSecondary: 'hsl(61, 78%, 52%)',
+  gray200: 'hsl(210deg 15% 18% / 1)',
+  gray700: 'hsl(210deg, 14%, 66%)',
+  grayMain100: 'hsl(221, 22%, 21%)',
+  grayMain200: 'hsl(221, 22%, 60%)'
 };

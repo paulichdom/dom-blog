@@ -1,6 +1,7 @@
 import React from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
 import styled from 'styled-components';
+import { ColorPalette } from '@/styles/constants';
 
 const SyntaxHighlighter = ({ children }: any) => {
   const code = children.props.children;
@@ -35,39 +36,38 @@ const CodeBlockContainer = styled.div`
   margin-top: 48px;
   margin-bottom: 60px;
   transition: all 200ms ease-in 0s;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 `;
 
 const PreBlock = styled.pre`
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 1rem;
   outline-offset: 2px;
   overflow-x: auto;
   margin-left: -32px;
   margin-right: -32px;
-  padding: 32px;
+  padding: 16px;
   min-height: 50px;
-  border: 1px solid rgba(230, 230, 230, 1);
+  border: 1px solid ${ColorPalette.grayMain100};
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
-  max-width: calc(100% + 64px);
 `;
 
-const LanguageHeadingContainer = styled.div`
+const LanguageHeadingContainer = styled.header`
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   border-width: 1px 1px 0px;
   border-style: solid;
-  border-color: rgba(230, 230, 230, 1);
-  background-color: rgb(231, 232, 235);
-  padding: 0.75rem 1.25rem;
+  border-color: ${ColorPalette.grayMain100};
+  background-color: ${ColorPalette.grayMain100};
+  padding: 0.25rem 1.25rem;
   margin-left: -32px;
   margin-right: -32px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  color: hsl(220deg, 23%, 5%);
+  line-height: 1.5rem;
+  color: ${ColorPalette.grayMain200};
   text-align: right;
+  height: 32px;
 `;
 
 export default SyntaxHighlighter;

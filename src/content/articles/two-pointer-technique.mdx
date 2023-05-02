@@ -16,6 +16,8 @@ To solve this problem using the two pointer technique, we can first sort the arr
 
 For example, given the array [2, 7, 11, 15, 3, 6] and the target sum 9, we can use the two pointer technique to find the pairs (2, 7) and (3, 6).
 
+![Client rendering](/images/posts/react-suspense/client-rendering.png)
+
 ## 2 .Reverse Linked List Problem
 
 Given a singly linked list, reverse the order of the nodes.
@@ -60,6 +62,8 @@ console.log(pairSum(arr, target)); // Output: [[2, 7], [3, 6]]
 ```
 
 In this code snippet, the pairSum function takes an array arr and a target sum target as input, and returns an array of pairs of numbers in the array that add up to the target sum. The function initializes two pointers left and right to the beginning and end of the array, respectively. It then sorts the array in ascending order using the built-in sort method with a custom comparator function that compares numbers.
+
+![Client rendering](/images/posts/react-suspense/ezgif.com-crop.gif)
 
 The function then enters a loop that continues as long as the two pointers don't overlap. At each iteration, the function calculates the sum of the numbers at the two pointers, and compares it to the target sum. If the sum is equal to the target, the function adds the pair of numbers to the result array pairs, and moves both pointers inward by incrementing left and decrementing right. If the sum is less than the target, the function moves the left pointer rightward, and if it's greater than the target, the function moves the right pointer leftward.
 

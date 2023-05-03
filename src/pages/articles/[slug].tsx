@@ -6,6 +6,8 @@ import LayoutContainer from '@/components/Layout/LayoutContainer/LayoutContainer
 import PostLayout from '@/components/Layout/PostLayout/PostLayout';
 import { NextPageWithLayout } from '../_app';
 import SyntaxHighlighter from '@/components/SyntaxHighlighter/SyntaxHighlighter';
+import MdxHeading02 from '@/components/Markdown/Heading/MdxHeading02';
+import MdxImage from '@/components/Markdown/Image/MdxImage';
 
 const BlogPost: NextPageWithLayout = ({ code, frontmatter }: any) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
@@ -15,7 +17,14 @@ const BlogPost: NextPageWithLayout = ({ code, frontmatter }: any) => {
       <p>{frontmatter.description}</p>
       <p>{frontmatter.date}</p>
       <article>
-        <Component components={{ IconInput, pre: SyntaxHighlighter }} />
+        <Component
+          components={{
+            pre: SyntaxHighlighter,
+            img: MdxImage,
+            h2: MdxHeading02,
+            IconInput,
+          }}
+        />
       </article>
     </>
   );

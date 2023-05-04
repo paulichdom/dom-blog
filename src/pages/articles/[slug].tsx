@@ -8,14 +8,21 @@ import { NextPageWithLayout } from '../_app';
 import SyntaxHighlighter from '@/components/SyntaxHighlighter/SyntaxHighlighter';
 import MdxHeading02 from '@/components/Markdown/Heading/MdxHeading02';
 import MdxImage from '@/components/Markdown/Image/MdxImage';
+import ArticleHeader from '@/components/Articles/ArticleDetail/ArticleHeader';
 
 const BlogPost: NextPageWithLayout = ({ code, frontmatter }: any) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
+  console.log({ frontmatter });
+  const date = new Date(frontmatter.date);
+  const formattedDate = date.toLocaleDateString('en-Us', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+
   return (
     <>
-      <h1>{frontmatter.title}</h1>
-      <p>{frontmatter.description}</p>
-      <p>{frontmatter.date}</p>
+      <ArticleHeader frontmatter={frontmatter} />
       <article>
         <Component
           components={{

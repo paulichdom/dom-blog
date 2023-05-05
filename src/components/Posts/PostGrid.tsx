@@ -9,6 +9,7 @@ type PostGridProps = {
 
 export default function PostGrid(props: PostGridProps) {
   const { posts } = props;
+  console.log({posts})
   return (
     <GridLayout>
       {posts.map((post: Post) => (

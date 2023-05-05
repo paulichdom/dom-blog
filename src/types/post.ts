@@ -1,6 +1,6 @@
-export interface Post extends PostFrontMatter {
+export interface Post {
   slug: string;
-  content: string;
+  frontmatter: PostFrontMatter;
 }
 
 export interface PostFrontMatter {

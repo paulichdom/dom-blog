@@ -1,25 +1,36 @@
-import PostContent from '@/components/Posts/PostDetail/PostContent';
-import { getPostData, getPostsFiles } from '@/utill/posts-util';
-import React, { ReactElement } from 'react';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import { Post } from '@/types/post';
-import { NextPageWithLayout } from '../_app';
+import { ReactElement, useMemo } from 'react';
+import { getPostData, getPostsFiles } from '@/utill/posts';
+import { getMDXComponent } from 'mdx-bundler/client';
+import IconInput from '@/components/IconInput/IconInput';
 import LayoutContainer from '@/components/Layout/LayoutContainer/LayoutContainer';
 import PostLayout from '@/components/Layout/PostLayout/PostLayout';
+import { NextPageWithLayout } from '../_app';
+import SyntaxHighlighter from '@/components/SyntaxHighlighter/SyntaxHighlighter';
+import MdxHeading02 from '@/components/Markdown/Heading/MdxHeading02';
+import MdxImage from '@/components/Markdown/Image/MdxImage';
+import ArticleHeader from '@/components/Articles/ArticleDetail/ArticleHeader';
 
-type ContextParams = {
-  slug: string;
+const BlogPost: NextPageWithLayout = ({ code, frontmatter }: any) => {
+  const Component = useMemo(() => getMDXComponent(code), [code]);
+
+  return (
+    <>
+      <ArticleHeader frontmatter={frontmatter} />
+      <article>
+        <Component
+          components={{
+            pre: SyntaxHighlighter,
+            img: MdxImage,
+            h2: MdxHeading02,
+            IconInput,
+          }}
+        />
+      </article>
+    </>
+  );
 };
 
-type PostDetailPageProps = {
-  post: Post;
-};
-
-const PostDetailPage: NextPageWithLayout<PostDetailPageProps> = ({ post }) => {
-  return <PostContent post={post} />;
-};
-
-PostDetailPage.getLayout = function getLayout(page: ReactElement) {
+BlogPost.getLayout = function getLayout(page: ReactElement) {
   return (
     <LayoutContainer>
       <PostLayout>{page}</PostLayout>
@@ -27,26 +38,23 @@ PostDetailPage.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
-export const getStaticProps: GetStaticProps<
-  PostDetailPageProps,
-  ContextParams
-> = (context) => {
+export const getStaticProps = async (context: any) => {
   const slug = context.params?.slug;
 
-  const postData = getPostData(slug as string);
+  const postData = await getPostData(slug);
 
   return {
     props: {
-      post: postData,
+      ...postData,
     },
     revalidate: 600,
   };
 };
 
-export const getStaticPaths: GetStaticPaths = () => {
+export const getStaticPaths = () => {
   const postFileNames = getPostsFiles();
 
-  const slugs = postFileNames.map((fileName) => fileName.replace(/\.md$/, ''));
+  const slugs = postFileNames.map((fileName) => fileName.replace(/\.mdx$/, ''));
 
   return {
     paths: slugs.map((slug) => ({ params: { slug: slug } })),
@@ -54,4 +62,4 @@ export const getStaticPaths: GetStaticPaths = () => {
   };
 };
 
-export default PostDetailPage;
+export default BlogPost;

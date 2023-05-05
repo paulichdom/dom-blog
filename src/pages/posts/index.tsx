@@ -1,6 +1,6 @@
 import AllPosts from '@/components/Posts/AllPosts';
 import React, { ReactElement } from 'react';
-import { getAllPosts } from '@/utill/posts-util';
+import { getAllPosts } from '@/utill/posts';
 import { Post } from '@/types/post';
 import { NextPageWithLayout } from '../_app';
 import LayoutContainer from '@/components/Layout/LayoutContainer/LayoutContainer';

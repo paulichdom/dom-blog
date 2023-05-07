@@ -32,5 +32,6 @@ export const ColorPalette = {
   gray200: 'hsl(210deg 15% 18% / 1)',
   gray700: 'hsl(210deg, 14%, 66%)',
   grayMain100: 'hsl(221, 22%, 21%)',
-  grayMain200: 'hsl(221, 22%, 60%)'
+  grayMain200: 'hsl(221, 22%, 60%)',
+  purple: '#DE33FF',
 };

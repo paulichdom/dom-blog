@@ -22,5 +22,6 @@ export default function PostGrid(props: PostGridProps) {
 const GridLayout = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows:  300px 300px;
   gap: 1rem;
 `;

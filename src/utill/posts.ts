@@ -69,3 +69,11 @@ export function getAllPosts() {
 
   return allPosts;
 }
+
+export function getFeaturedPosts() {
+  const allPosts = getAllPosts();
+
+  const featuredPosts = allPosts.filter((post) => post.frontmatter.isFeatured);
+
+  return featuredPosts;
+}

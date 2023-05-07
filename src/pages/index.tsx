@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { getFeaturedPosts } from '@/utill/posts-util';
+import { getFeaturedPosts } from '@/utill/posts';
 import { Post } from '@/types/post';
 import PostGrid from '@/components/Posts/PostGrid';
 import { NextPageWithLayout } from './_app';

@@ -41,6 +41,7 @@ const PostCard = styled.div`
   background-color: ${ColorPalette.spaceCadet};
   max-width: 100%;
   border: 1px solid ${ColorPalette.spaceCadet};
+  overflow: hidden;
   transition: border-color 250ms ease 0ms, background-color 0s ease;
 
   &:hover {

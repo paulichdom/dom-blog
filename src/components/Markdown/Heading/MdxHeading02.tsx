@@ -6,7 +6,7 @@ const MdxHeading02 = ({ children }: any) => {
 };
 
 const Heading02 = styled.h2`
-  color: #DE33FF;
+  color: #fedc6b;
   margin-top: 96px;
   margin-bottom: 32px;
 `;

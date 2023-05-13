@@ -1,0 +1,199 @@
+---
+title: 'Interface Extension vs Type Intersection in Typescript - Understanding the Key Differences'
+date: '2023-05-13T15:33:05.323Z'
+excerpt: 'TypeScript offers two ways to combine multiple types: interface extension and type intersection. While they may seem similar, understanding their differences is crucial for writing maintainable and scalable code.'
+isFeatured: true
+---
+
+Before delving into combining multiple types in TypeScript, it's important to
+understand the fundamentals of Type Aliases and Interfaces and their workings.
+TypeScript allows types to be defined separately from the variables that use them.
+Aliases and Interfaces allows types to be easily shared between different variables/objects.
+
+## Type Aliases
+
+One of the features that make TypeScript so useful is the ability to create type aliases.
+Type aliases allow you to create custom types that can be used throughout your code.
+A new custom type is defined with a custom name (an Alias). Alias can be used for primitives
+like string or more complex types such as `objects` and `arrays`.
+
+<br />
+Think of Types like variables: Much like how you can create variables with the same
+name in different scopes, a type has similar semantics.
+<br />
+Let's look at some basic examples:
+
+```ts
+// Primitive type
+// Useful for documentation mainly
+
+type SanitasedInput = string;
+type MissingNo = 404;
+
+// Object literal type
+
+type Location = {
+  x: number;
+  y;
+  number;
+};
+
+// Tuple type
+// A tuple is a specail-cased array with known types at specific indexes
+
+type Data = [location: Location, timestamp: string];
+
+// Union type
+// Describes a type which is one of many options,
+// for example a list of known strings
+
+type Size = 'small' | 'medium' | 'large';
+
+// Object Literal Syntax
+
+type JSONResponse = {
+  version: number; // Field
+  //** In bytes */                         // Attached docs
+  payloadSize: number;
+  outOfStock?: boolean; // Optional
+  update: (retrytTimes: number) => void; // Arrow func field
+  update(retrytTimes: number): void; // Function
+  (): JSONResponse; // Type is callable
+  [key: string]: number; // Accepts any index
+  new (s: string): JSONResponse; // Newable
+  readonly body: string; // Readonly property
+};
+```
+
+[Resource: TypeScript Chear Sheet](https://www.typescriptlang.org/static/TypeScript%20Types-ae199d69aeecf7d4a2704a528d0fd3f9.png)
+
+<br />
+TypeScript offers several ways to define types, including basic types such as strings
+and numbers, object types that define the shape of an object and its properties,
+tuple types for arrays with a fixed length and specific types, union types that can
+be one of several possibilities, and more advanced object literal syntax for more
+detailed object type definitions, such as functions, callable types, and readonly
+properties. Using these types can help make code more maintainable, predictable,
+and less error-prone.
+
+## Interfaces
+
+Interfaces are similar to type aliases, except they **only** apply to object types.
+An interface declaration is another way to name an object type.
+
+<br />
+Key points:
+<br />
+* Used to describe the shape of objects, and can be extendend by others. 
+* Almost everything in JavaScript is an object and *interface* is built to match thier
+runtime behavior.
+
+```ts
+// Common syntax
+
+/**
+ * Optionally take properties from existing interface type (HTTPAble)
+ */
+interface JSONResponse extends Response, HTTPAble {
+  version: number;
+  //** In bytes */                         // JSDoc comment attached to show in editors
+  payloadSize: number;
+  outOfStock?: boolean; // This property might not be on the object
+  update: (retrytTimes: number) => void; // These are two ways to describe a property which is a function
+  update(retrytTimes: number): void;
+  (): JSONResponse; // You can call this object via () - (functions in JS are objects which can be called)
+  [key: string]: number; // Any property not described already is assumed to exist, and all properties must be numbers
+  new (s: string): JSONResponse; // You can use new on the object this interface describes
+  readonly body: string; // Tells TypeScript that a property can not be changed
+}
+```
+
+TypeScript interface is a way to describe the shape of an object type. It's similar to type aliases but only applies to object types.
+Interfaces can extend other interfaces, and they allow optional properties, readonly properties, and index signatures.
+An interface can also describe callable and constructable objects. Interfaces are useful for defining contracts between
+different parts of a codebase or with external dependencies. They help catch errors early and make the code more maintainable.
+Since TypeScript is a statically typed language, interfaces enable developers to define the structure of their code more explicitly,
+which can make it easier to understand and work with in larger codebases.
+
+## Differences Between Type Aliases and Interfaces
+
+Type aliases and interfaces are very similar, and in many cases you can choose between them freely.
+Almost all features of an interface are available in type, the key distinction is that a type cannot
+be re-opened to add new properties vs an interface which is always extendable.
+
+<br />
+### Type vs Interface
+<br />
+* Interfaces can only describe object shapes 
+* Interfaces can be extended bt declaring
+it multiple times
+* In performace critical types interface comparison checks
+can be faster
+<br />
+
+**Extending** an interface means you are creating a new interface with the same properties as the original,
+plus something new.
+
+```ts
+// Extending an interface
+
+interface Animal {
+  name: string;
+}
+
+interface Bear extends Animal {
+  honey: boolean;
+}
+
+const bear = getBear();
+bear.name;
+bear.honey;
+```
+
+#### Extension via merging:
+
+<br />
+Interfaces are merged, so multiple declarstions will add new fileds to the type definition.
+
+```ts
+interface APICall {
+  data: Response;
+}
+
+interface APICall {
+  error?: Error;
+}
+```
+#### Intersection types
+<br/>
+A way to merge/extend types
+
+```ts
+type Animal = {
+  name: string;
+}
+
+type Bear = Animal & {
+  honey: boolean;
+}
+
+const bear = getBear();
+bear.name;
+bear.honey;
+
+```
+
+#### A type cannot be changed after being created
+
+```ts
+type Window = {
+  title: string;
+}
+
+type Window = {
+  ts: TypeScriptAPI;
+}
+
+// Error; Ducplicate indentifier 'Window'.
+
+```

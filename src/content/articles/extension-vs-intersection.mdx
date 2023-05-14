@@ -63,6 +63,7 @@ type JSONResponse = {
   new (s: string): JSONResponse; // Newable
   readonly body: string; // Readonly property
 };
+
 ```
 
 [Resource: TypeScript Chear Sheet](https://www.typescriptlang.org/static/TypeScript%20Types-ae199d69aeecf7d4a2704a528d0fd3f9.png)
@@ -106,6 +107,7 @@ interface JSONResponse extends Response, HTTPAble {
   new (s: string): JSONResponse; // You can use new on the object this interface describes
   readonly body: string; // Tells TypeScript that a property can not be changed
 }
+
 ```
 
 TypeScript interface is a way to describe the shape of an object type. It's similar to type aliases but only applies to object types.
@@ -125,10 +127,8 @@ be re-opened to add new properties vs an interface which is always extendable.
 ### Type vs Interface
 <br />
 * Interfaces can only describe object shapes 
-* Interfaces can be extended bt declaring
-it multiple times
-* In performace critical types interface comparison checks
-can be faster
+* Interfaces can be extended bt declaring it multiple times * In performace critical types interface comparison checks can
+be faster
 <br />
 
 **Extending** an interface means you are creating a new interface with the same properties as the original,
@@ -148,6 +148,7 @@ interface Bear extends Animal {
 const bear = getBear();
 bear.name;
 bear.honey;
+
 ```
 
 #### Extension via merging:
@@ -163,19 +164,21 @@ interface APICall {
 interface APICall {
   error?: Error;
 }
+
 ```
+
 #### Intersection types
-<br/>
-A way to merge/extend types
+
+<br />A way to merge/extend types
 
 ```ts
 type Animal = {
   name: string;
-}
+};
 
 type Bear = Animal & {
   honey: boolean;
-}
+};
 
 const bear = getBear();
 bear.name;
@@ -188,12 +191,21 @@ bear.honey;
 ```ts
 type Window = {
   title: string;
-}
+};
 
 type Window = {
   ts: TypeScriptAPI;
-}
+};
 
 // Error; Ducplicate indentifier 'Window'.
 
 ```
+
+## Conclusion
+
+It is important to note that while TypeScript's interface extension and type intersection may seem similar,
+there are key differences that can have a significant impact on the maintainability and scalability of code.
+Type aliases and interfaces are both powerful tools for creating custom types, but they have different use
+cases and functionalities. Developers must choose the appropriate tool based on their specific requirements.
+Type intersection and interface extension can be used together to build complex types that meet specific needs.
+Overall, understanding the differences between these two features is crucial for writing high-quality TypeScript code.

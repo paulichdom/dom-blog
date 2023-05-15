@@ -27,8 +27,8 @@ export default function PostItem({ post }: PostItemProps) {
           <Title>{title}</Title>
           <time>{formattedDate}</time>
           <Excerpt>{excerpt}</Excerpt>
-          <Text>Read more</Text>
         </Article>
+        <Text>Read more</Text>
       </StyledLink>
     </PostCard>
   );
@@ -41,7 +41,7 @@ const PostCard = styled.div`
   background-color: ${ColorPalette.spaceCadet};
   max-width: 100%;
   border: 1px solid ${ColorPalette.spaceCadet};
-  overflow: hidden;
+
   transition: border-color 250ms ease 0ms, background-color 0s ease;
 
   &:hover {
@@ -51,17 +51,25 @@ const PostCard = styled.div`
 `;
 
 const StyledLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   text-decoration: none;
   color: inherit;
 `;
 
-const Article = styled.article``;
+const Article = styled.article`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+`;
 
 const Title = styled.h3``;
 
 const Excerpt = styled.p`
   margin-top: 16px;
-  font-size: 1rem;
+  font-size: 0.85rem;
+  flex-grow: 1;
 `;
 
 const Text = styled.div`

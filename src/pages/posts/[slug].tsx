@@ -9,6 +9,7 @@ import SyntaxHighlighter from '@/components/SyntaxHighlighter/SyntaxHighlighter'
 import MdxHeading02 from '@/components/Markdown/Heading/MdxHeading02';
 import MdxImage from '@/components/Markdown/Image/MdxImage';
 import ArticleHeader from '@/components/Articles/ArticleDetail/ArticleHeader';
+import Aside from '@/components/Aside/Aside';
 
 const BlogPost: NextPageWithLayout = ({ code, frontmatter }: any) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
@@ -23,6 +24,7 @@ const BlogPost: NextPageWithLayout = ({ code, frontmatter }: any) => {
             img: MdxImage,
             h2: MdxHeading02,
             IconInput,
+            aside: Aside,
           }}
         />
       </article>

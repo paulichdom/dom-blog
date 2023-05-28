@@ -29,12 +29,6 @@ export default function Header() {
                   <ListItem>
                     <NavLink href="/contact">Contact</NavLink>
                   </ListItem>
-                  <ListItem>
-                    <NavLink href="/mdx">MDX</NavLink>
-                  </ListItem>
-                  <ListItem>
-                    <NavLink href="/articles">Articles</NavLink>
-                  </ListItem>
                 </List>
               </StyledNavbar>
             </NavbarWrapper>
@@ -134,17 +128,20 @@ const NavLink = styled(Link)`
 const ContactWrapper = styled.div``;
 
 const Curtain = styled.div`
-    position: absolute;
-    right: 0;
-    bottom: -31px;
+  position: absolute;
+  right: 0;
+  bottom: -31px;
+  width: 100%;
+  height: 32px;
+
+  &:before {
+    display: block;
     width: 100%;
     height: 32px;
-
-    &:before {
-      display: block;
-      width: 100%;
-      height: 32px;
-      background: linear-gradient(${ColorPalette.raisinBlack}, rgba(0,0,0,0) 90%);
-      content: "";
+    background: linear-gradient(
+      ${ColorPalette.raisinBlack},
+      rgba(0, 0, 0, 0) 90%
+    );
+    content: '';
   }
 `;

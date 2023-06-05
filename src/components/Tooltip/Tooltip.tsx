@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 type TooltipProps = {
   text: string;
@@ -29,7 +29,6 @@ const TooltipContent = styled.div<{ position: string }>`
   user-select: none;
 
   opacity: 0;
-  //transform: translateX(var(--_x, 0)) translateY(var(--_y, 0));
   transition: opacity 0.2s ease, transform 0.2s ease;
 
   position: absolute;
@@ -44,28 +43,36 @@ const TooltipContent = styled.div<{ position: string }>`
   ${({ position }) => {
     switch (position) {
       case 'top':
-        return `
+        return css`
+          --_x: -50%;
+          --_y: -3px;
           left: 50%;
           bottom: calc(100% + var(--_p-block));
-          /* --_x: -50%; */ transform: translateX(-50%);
+          transform: translateX(var(--_x));
         `;
       case 'bottom':
-        return `
+        return css`
+          --_x: -50%;
+          --_y: 3px;
           left: 50%;
           top: calc(100% + var(--_p-block));
-          /* --_x: -50%; */ transform: translateX(-50%);
+          transform:translateX(var(--_x));
         `;
       case 'left':
-        return `
+        return css`
+          --_x: -3px;
+          --_y: 50%;
           right: calc(100% + var(--_p-inline));
           bottom: 50%;
-          /* --_y: 50%; */ transform: translateY(50%);
+          transform: translateY(var(--_y));
         `;
       case 'right':
-        return `
+        return css`
+          --_x: 3px;
+          --_y: 50%;
           left: calc(100% + var(--_p-inline));
           bottom: 50%;
-          /* --_y: 50%; */ transform: translateY(50%);
+          transform: translateY(var(--_y));
         `;
       default:
         return '';
@@ -75,5 +82,6 @@ const TooltipContent = styled.div<{ position: string }>`
   ${TooltipWrapper}:hover & {
     opacity: 1;
     transition-delay: 200ms;
+    transform: translateX(var(--_x, 0)) translateY(var(--_y, 0));
   }
 `;

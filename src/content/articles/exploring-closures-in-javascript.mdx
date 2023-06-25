@@ -27,17 +27,19 @@ Closure builds on this approach: for variables we need to use over time, instead
 we can encapsulate (more narrowly scope) them but still preserve access from inside functions, for broader use.
 Functions remember these referenced scoped variables via closure
 (<cite>Simpson, 2014, "You Don't Know JS: Scope & Closures"</cite>).
+
 <br />
-Put simply, a closure grants access to the scope of an outer function from within an inner function. 
-In the realm of JavaScript, closures are formed each time a function is created, 
-precisely at the moment of function creation.
+Put simply, a closure grants access to the scope of an outer function from within
+an inner function. In the realm of JavaScript, closures are formed each time a function
+is created, precisely at the moment of function creation.
 <br />
-In the realm of programming, closure emerges as a unique behavior inherent to functions alone. 
-Its essence lies solely within the domain of functions. Consequently, closure does not extend to objects or classes, 
-although individual functions or methods within a class may possess closure. 
-Thus, it is imperative to recognize that closure is a characteristic exclusive to functions.
+In the realm of programming, closure emerges as a unique behavior inherent to functions
+alone. Its essence lies solely within the domain of functions. Consequently, closure
+does not extend to objects or classes, although individual functions or methods within
+a class may possess closure. Thus, it is imperative to recognize that closure is
+a characteristic exclusive to functions.
 <br />
-Let's look at a simple counter function in our first code example: 
+Let's look at a simple counter function in our first code example:{' '}
 
 ```ts
 function createCounter(): () => void {
@@ -57,18 +59,23 @@ counter(); // Output: 1
 counter(); // Output: 2
 counter(); // Output: 3
 ```
-In this example, the createCounter function returns an inner function increment. 
-The count variable is enclosed within the scope of the createCounter function, forming a closure. 
-When the increment function is invoked through the counter variable, 
+
+In this example, the createCounter function returns an inner function increment.
+The count variable is enclosed within the scope of the createCounter function, forming a closure.
+When the increment function is invoked through the counter variable,
 it can access and modify the count variable, even though it's no longer within its original lexical scope.
+
 <br />
-The closure ensures that the count variable is preserved between function calls, allowing the counter to 
-increment correctly with each invocation. This showcases the power of closures in encapsulating and 
-persisting data within a function's scope, even after the outer function has finished executing.
+The closure ensures that the count variable is preserved between function calls,
+allowing the counter to increment correctly with each invocation. This showcases
+the power of closures in encapsulating and persisting data within a function's scope,
+even after the outer function has finished executing.
 <br />
-This example highlights the versatility and practicality of closures, 
-demonstrating how they can be utilized to create self-contained functions with their own internal state, 
-providing a reliable and efficient solution to various programming scenarios.
+This example highlights the versatility and practicality of closures, demonstrating
+how they can be utilized to create self-contained functions with their own internal
+state, providing a reliable and efficient solution to various programming scenarios.
+<br />
+More on [Lambda Calculus And Closure](https://www.kimsereylam.com/racket/2019/02/06/lambda-calculus-and-closure.html#:~:text=A%20closure%20is%20a%20record,bindings%20for%20all%20its%20variables)
 
 ## Examples of Closures in JavaScript
 

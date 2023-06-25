@@ -60,13 +60,13 @@ counter(); // Output: 2
 counter(); // Output: 3
 ```
 
-In this example, the createCounter function returns an inner function increment.
-The count variable is enclosed within the scope of the createCounter function, forming a closure.
-When the increment function is invoked through the counter variable,
-it can access and modify the count variable, even though it's no longer within its original lexical scope.
+In this example, the `createCounter` function returns an inner function `increment`.
+The `count` variable is enclosed within the scope of the `createCounter` function, forming a closure.
+When the `increment` function is invoked through the `counter` variable,
+it can access and modify the `count` variable, even though it's no longer within its original lexical scope.
 
 <br />
-The closure ensures that the count variable is preserved between function calls,
+The closure ensures that the `count` variable is preserved between function calls,
 allowing the counter to increment correctly with each invocation. This showcases
 the power of closures in encapsulating and persisting data within a function's scope,
 even after the outer function has finished executing.

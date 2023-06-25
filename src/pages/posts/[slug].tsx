@@ -6,7 +6,7 @@ import LayoutContainer from '@/components/Layout/LayoutContainer/LayoutContainer
 import PostLayout from '@/components/Layout/PostLayout/PostLayout';
 import { NextPageWithLayout } from '../_app';
 import SyntaxHighlighter from '@/components/SyntaxHighlighter/SyntaxHighlighter';
-import { MdxHeading02, MdxImage, MdxLink } from '@/components/Markdown';
+import { MdxCode, MdxHeading02, MdxImage, MdxLink } from '@/components/Markdown';
 import ArticleHeader from '@/components/Articles/ArticleDetail/ArticleHeader';
 import Aside from '@/components/Aside/Aside';
 
@@ -23,6 +23,7 @@ const BlogPost: NextPageWithLayout = ({ code, frontmatter }: any) => {
             img: MdxImage,
             h2: MdxHeading02,
             a: MdxLink,
+            code: MdxCode,
             IconInput,
             aside: Aside,
           }}

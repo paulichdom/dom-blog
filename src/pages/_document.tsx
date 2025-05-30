@@ -1,8 +1,9 @@
+import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="en" {...mantineHtmlProps}>
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -28,6 +29,7 @@ export default function Document() {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest"></link>
+        <ColorSchemeScript defaultColorScheme="auto" />
       </Head>
       <body>
         <Main />

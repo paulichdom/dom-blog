@@ -1,10 +1,11 @@
-import React from 'react';
-import useMounted from '@/hooks/useMounted';
-import Image from 'next/image';
-import styled from 'styled-components';
-import { ColorPalette } from '@/styles/constants';
+import React from "react";
+import useMounted from "@/hooks/useMounted";
+import Image from "next/image";
+import styled from "styled-components";
+import { ColorPalette } from "@/styles/constants";
+import { SegmentedControlNavigation } from "../SegmentedControl.tsx/SegmentedControl";
 
-const PROFILE_IMAGE_URL = 'https://robohash.org/paulicdom';
+const PROFILE_IMAGE_URL = "https://robohash.org/paulicdom";
 
 export default function Profile() {
   const { hasMounted } = useMounted();
@@ -13,6 +14,7 @@ export default function Profile() {
 
   return (
     <StyledSection>
+      <SegmentedControlNavigation />
       <ImageWrapper>
         <Image
           src={PROFILE_IMAGE_URL}

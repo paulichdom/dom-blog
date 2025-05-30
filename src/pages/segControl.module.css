@@ -1,0 +1,15 @@
+.indicator {
+  border-bottom: 2px solid red;
+}
+
+.label:hover {
+  background: linear-gradient(0deg, #1976d2 0%, #e0f7fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.innerLabel {
+  color: linear-gradient(0deg, #1976d2 0%, #e0f7fa 100%);;
+}
